@@ -18,14 +18,16 @@ public class RootFrame extends JFrame {
     private static final MigLayout LAYOUT = new MigLayout(LAYOUT_CONSTRAINTS,
         LAYOUT_COLUMN_CONSTRAINTS, LAYOUT_ROW_CONSTRAINTS);
 
-    private final QueryTextArea queryPanel;
-    private final DataTextArea dataPanel;
-    private final ResultTextArea resultPanel;
+    private final QueryTextArea queryTextArea;
+    private final DataTextArea dataTextArea;
+    private final ResultTextArea resultTextArea;
 
-    public RootFrame(final QueryTextArea queryPanel, final DataTextArea dataPanel, final ResultTextArea resultPanel) {
-        this.queryPanel = queryPanel;
-        this.dataPanel = dataPanel;
-        this.resultPanel = resultPanel;
+    public RootFrame(final QueryTextArea queryTextArea,
+                     final DataTextArea dataTextArea,
+                     final ResultTextArea resultTextArea) {
+        this.queryTextArea = queryTextArea;
+        this.dataTextArea = dataTextArea;
+        this.resultTextArea = resultTextArea;
         initComponents();
     }
 
@@ -35,9 +37,9 @@ public class RootFrame extends JFrame {
         setLayout(LAYOUT);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        add(queryPanel, "growx,span");
-        add(new RTextScrollPane(dataPanel), "grow");
-        add(new RTextScrollPane(resultPanel), "grow");
+        add(queryTextArea, "growx,span");
+        add(new RTextScrollPane(dataTextArea), "grow");
+        add(new RTextScrollPane(resultTextArea), "grow");
     }
 
 }
